@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: #ebf0f7;
+    font-family: 'Montserrat';
+}
+
+.task{
+    display: flex;
+    flex-direction: column;
+
+    background-image: linear-gradient(to right, #F6EBE7 , #F6E8F0, #ECF0F8);
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.top h2{
+    margin-left: 1rem;
+}
+
+.top button{
+    height: 35px;
+    border-radius: 15px;
+}
+
+.task-grid{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.card-column{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+}
+
+h3{
+    margin-left: 2rem;
+}
+
+.card{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: move;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+    margin-bottom: 1rem;
+    border: 3px dashed transparent;
+}
+
+.card:hover {
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
+    border-color: rgba(162, 179, 207, 0.2) !important;
+  }
+
+.card h4{
+    align-self: center;
+    padding: 1rem;
+}
+
+.card p{
+    padding: .8rem;
+    max-width: 35ch;
+}
+
+.card-hover {
+    border: 3px dashed #c4cad3 !important;
+}
+
+dialog {
+    margin: 50vh auto;
+    padding: 15px;
+}
+
+dialog::backdrop{
+    filter: blur(18px);
+  -webkit-filter: blur(18px);
+}
+
+.addTask{
+    color: #686868;
+}
