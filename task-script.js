@@ -6,7 +6,7 @@ const form1 = document.querySelector('.form1');
 const form2 = document.querySelector('.form2');
 
 const addButton = document.querySelector('.addTask');
-// const addNoteButton = document.querySelector('.card-head img');
+const addNoteButton = document.querySelectorAll('.card-head img');
 
 var dragSrcEl = null;
 const readyTaskCol = document.querySelector('.ready .card-column');
@@ -102,6 +102,7 @@ function reCheck() {
     div.classList.add('click');
 
     function handleClick() {
+      console.log('click');
       div.classList.toggle('click');
     }
 
@@ -189,3 +190,9 @@ form2.addEventListener('submit', (e) => {
 
 reCheck();
 
+addNoteButton.forEach(button => {
+  button.addEventListener('click', (e) => {
+    parentCard = e.target.parentNode.parentNode;
+    dialog2.showModal();
+  })
+});
