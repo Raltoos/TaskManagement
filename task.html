@@ -15,82 +15,71 @@
         rel="stylesheet">
 
 
-        <style>
-            form {
-                margin: 0 auto;
-                width: 400px;
-                padding: 1em;
-                border: 1px solid #ccc;
-                border-radius: 1em;
-            }
-    
-            ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            
-            li{
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-            }
+    <style>
+        form {
+            margin: 0 auto;
+            width: 400px;
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 1em;
+        }
 
-            form li+li {
-                margin-top: 1em;
-            }
-    
-            label {
-                display: inline-block;
-                width: 150px;
-                text-align: center;
-            }
-    
-            input,
-            textarea {
-                font: 1em sans-serif;
-    
-                width: 300px;
-                box-sizing: border-box;
-    
-                border: 1px solid #999;
-            }
-    
-            input:focus,
-            textarea:focus {
-                border-color: #000;
-            }
-    
-            textarea {
-                vertical-align: top;
-                height: 5em;
-            }
-    
-            form .button {
-                padding-left: 90px;
-            }
-    
-            button {
-                margin-left: 0.5em;
-            }
-        </style>
+        .formList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .formList li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        form li+li {
+            margin-top: 1em;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+        }
+
+        input,
+        textarea {
+            font: 1em sans-serif;
+
+            width: 300px;
+            box-sizing: border-box;
+
+            border: 1px solid #999;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #000;
+        }
+
+        textarea {
+            vertical-align: top;
+            height: 5em;
+        }
+
+        form .button {
+            padding-left: 90px;
+        }
+
+        button {
+            margin-left: 0.5em;
+        }
+    </style>
 </head>
 
 <body>
-    <dialog>
-        <form method="dialog">
-            <!-- <div class="formLine">
-                <label for="taskName">Enter the task name : </label>
-                <input type="text" name="name" id="taskName">
-            </div>
-            <div class="formLine">
-                <label for="taskDescription">Enter the task description : </label>
-                <input type="text" name="description" id="taskDescription">
-            </div>
-            <div class="formLine">
-                <button>Submit</button>
-            </div> -->
-            <ul>
+    <dialog class="dialog1">
+        <form method="dialog" class="form1">
+            <ul class="formList">
                 <li>
                     <label for="firstName">Enter the Card Heading - </label>
                     <input type="text" name="name" id="taskName" placeholder="Type Here">
@@ -107,6 +96,25 @@
         </form>
     </dialog>
 
+    <dialog class="dialog2">
+        <form method="dialog" class="form2">
+            <ul class="formList">
+                <li>
+                    <label for="firstName">Note Title - </label>
+                    <input type="text" name="name" id="noteTitle" placeholder="Type Here">
+                </li>
+                <li>
+                    <label for="message">Note - </label>
+                    <textarea name="value" id="noteDescription"></textarea>
+                </li>
+
+                <li class="button">
+                    <button type="submit">Create Note</button>
+                </li>
+            </ul>
+        </form>
+    </dialog>
+
     <div class="task">
         <div class="top">
             <h2>Project Name</h2>
@@ -117,25 +125,43 @@
                 <h3>Task Ready</h3>
                 <div class="card-column">
                     <div class="card" draggable="true">
-                        <h4>Drafting</h4>
+                        <div class="card-head">
+                            <h4>Drafting</h4>
+
+                            <img src="add-post.png">
+                        </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio odio, accusantium sunt
                             nostrum ea perferendis reiciendis maiores! Accusantium est voluptate numquam eaque nemo
                             cupiditate porro rem fugiat architecto doloremque, ipsum aut exercitationem voluptatem quas
                             ex.</p>
+                        <ul class="card-note-list">
+                        </ul>
                     </div>
                     <div class="card" draggable="true">
-                        <h4>Copywriting</h4>
+                        <div class="card-head">
+                            <h4>Copywriting</h4>
+
+                            <img src="add-post.png">
+                        </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio odio, accusantium sunt
                             nostrum ea perferendis reiciendis maiores! Accusantium est voluptate numquam eaque nemo
                             cupiditate porro rem fugiat architecto doloremque, ipsum aut exercitationem voluptatem quas
                             ex.</p>
+                        <ul class="card-note-list">
+                        </ul>
                     </div>
                     <div class="card" draggable="true">
-                        <h4>Recording</h4>
+                        <div class="card-head">
+                            <h4>Recording</h4>
+
+                            <img src="add-post.png">
+                        </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio odio, accusantium sunt
                             nostrum ea perferendis reiciendis maiores! Accusantium est voluptate numquam eaque nemo
                             cupiditate porro rem fugiat architecto doloremque, ipsum aut exercitationem voluptatem quas
                             ex.</p>
+                        <ul class="card-note-list">
+                        </ul>
                     </div>
                     <p class="readyCol addTask" draggable="true">+ ADD A TASK</p>
                 </div>
@@ -144,18 +170,30 @@
                 <h3>In Progress</h3>
                 <div class="card-column">
                     <div class="card" draggable="true">
-                        <h4>Proof Reading</h4>
+                        <div class="card-head">
+                            <h4>Proof Reading</h4>
+
+                            <img src="add-post.png">
+                        </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio odio, accusantium sunt
                             nostrum ea perferendis reiciendis maiores! Accusantium est voluptate numquam eaque nemo
                             cupiditate porro rem fugiat architecto doloremque, ipsum aut exercitationem voluptatem quas
                             ex.</p>
+                        <ul class="card-note-list">
+                        </ul>
                     </div>
                     <div class="card" draggable="true">
-                        <h4>Design</h4>
+                        <div class="card-head">
+                            <h4>Design</h4>
+
+                            <img src="add-post.png">
+                        </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio odio, accusantium sunt
                             nostrum ea perferendis reiciendis maiores! Accusantium est voluptate numquam eaque nemo
                             cupiditate porro rem fugiat architecto doloremque, ipsum aut exercitationem voluptatem quas
                             ex.</p>
+                        <ul class="card-note-list">
+                        </ul>
                     </div>
                     <p class="progressCol addTask" draggable="true">+ ADD A TASK</p>
                 </div>
@@ -164,11 +202,17 @@
                 <h3>Needs Review</h3>
                 <div class="card-column">
                     <div class="card" draggable="true">
-                        <h4>Testing</h4>
+                        <div class="card-head">
+                            <h4>Testing</h4>
+
+                            <img src="add-post.png">
+                        </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio odio, accusantium sunt
                             nostrum ea perferendis reiciendis maiores! Accusantium est voluptate numquam eaque nemo
                             cupiditate porro rem fugiat architecto doloremque, ipsum aut exercitationem voluptatem quas
                             ex.</p>
+                        <ul class="card-note-list">
+                        </ul>
                     </div>
                     <p class="reviewCol addTask" draggable="true">+ ADD A TASK</p>
                 </div>
@@ -177,11 +221,17 @@
                 <h3>Completed</h3>
                 <div class="card-column">
                     <div class="card" draggable="true">
-                        <h4>Review</h4>
+                        <div class="card-head">
+                            <h4>Review</h4>
+
+                            <img src="add-post.png">
+                        </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio odio, accusantium sunt
                             nostrum ea perferendis reiciendis maiores! Accusantium est voluptate numquam eaque nemo
                             cupiditate porro rem fugiat architecto doloremque, ipsum aut exercitationem voluptatem quas
                             ex.</p>
+                        <ul class="card-note-list">
+                        </ul>
                     </div>
                     <p class="completedCol addTask" draggable="true">+ ADD A TASK</p>
                 </div>
