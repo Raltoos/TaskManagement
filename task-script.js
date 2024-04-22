@@ -61,9 +61,24 @@ function handleDrop(e) {
     // If not, insert the task before the target element
     // targetColumn.insertBefore(dragSrcEl, e.target);
     if (dragSrcEl !== this) {
+      // dragSrcEl.innerHTML = this.innerHTML;
+      // this.innerHTML = e.dataTransfer.getData('text/html');
+      var clone = dragSrcEl.cloneNode(true);
+
+      // Set the innerHTML of dragSrcEl to the innerHTML of the current element
       dragSrcEl.innerHTML = this.innerHTML;
-      this.innerHTML = e.dataTransfer.getData('text/html');
+
+      // Replace the innerHTML of the current element with the cloned node
+      this.innerHTML = clone.innerHTML;
+      this.querySelector('.card-note-list').querySelectorAll('li').forEach(li => {
+        console.log(li)
+        li.classList.add('new');
+      });
+      dragSrcEl.querySelector('.card-note-list').querySelectorAll('li').forEach(li => {
+        li.classList.add('new');
+      });
     }
+    reCheck();  
   }
 }
 function handleDragEnd(e) {
@@ -102,7 +117,6 @@ function reCheck() {
     div.classList.add('click');
 
     function handleClick() {
-      console.log('click');
       div.classList.toggle('click');
     }
 
