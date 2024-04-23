@@ -6,7 +6,7 @@ const form1 = document.querySelector('.form1');
 const form2 = document.querySelector('.form2');
 
 const addButton = document.querySelector('.addTask');
-const addNoteButton = document.querySelectorAll('.card-head img');
+let addNoteButton = document.querySelectorAll('.card-head img');
 
 var dragSrcEl = null;
 const readyTaskCol = document.querySelector('.ready .card-column');
@@ -109,6 +109,14 @@ function reCheck() {
     // addArea.addEventListener('dragleave', handleDragLeave, false);
     addArea.addEventListener('drop', handleDrop, false);
     // addArea.addEventListener('dragend', handleDragEnd, false);
+  });
+
+  addNoteButton = document.querySelectorAll('.card-head img');
+  addNoteButton.forEach(button => {
+    button.addEventListener('click', (e) => {
+      parentCard = e.target.parentNode.parentNode;
+      dialog2.showModal();
+    })
   });
 
   notes = document.querySelectorAll('.card-note-list .new');
